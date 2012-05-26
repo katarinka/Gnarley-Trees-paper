@@ -6,13 +6,25 @@
 
 \def\todo#1{\par\smallskip{\scriptsize {\bf TODO: }#1}\par\smallskip}
 
+\def\ins{\mathop{\mathit{insert}}}
+\def\find{\mathop{\mathit{find}}}
+\def\delete{\mathop{\mathit{delete}}}
+\def\dec{\mathop{\mathit{decreaseKey}}}
+\def\delmin{\mathop{\mathit{deleteMin}}}
+\def\meld{\mathop{\mathit{meld}}}
+\def\rank{\mathop{\mathit{rank}}}
+\def\L{\mathop{\mathit{left}}}
+\def\R{\mathop{\mathit{right}}}
+\def\reverse{\mathop{\mathit{reverse}}}
+\def\Bp{$\hbox{\rm B}\!^+\!$}
+
 \begin{document}
   \catcode`\"=\active \def "{\begingroup\clqq\def "{\endgroup\crqq}}
 
-\title{Gnarley Trees}
+\title{Gnarley Trees: vizualizácia dátových štruktúr}
 
 \author{
-  Katka Kotrlová % \email{katkin email, ktorý chce zverejniť}
+  Katka Kotrlová % \email{katka.kotrlova@gmail.com}
   \and 
   Pavol Lukča % \email{palyho mail}
   \and
@@ -41,17 +53,17 @@ Mlynská Dolina,
 \maketitle
 
 \begin{abstract}
-V tomto článku prezentujeme našu prácu na projekte Gnarley Trees, ktorý 
-začal Jakub Kováč ako svoju bakalársku prácu. Gnarley Trees je 
-projekt, ktorý má dve časti. Prvá časť sa zaoberá kompiláciou dátových 
-štruktúr, ktoré majú stromovú štruktúru, ich popisom a popisom ich 
-hlavných výhod a nevýhod oproti iným dátovým štruktúram. Druhá časť sa 
-zaoberá ich vizualizáciou a vizualizáciou vybraných algoritmoch na 
-týchto štruktúrach.
+V článku prezentujeme našu prácu na projekte Gnarley Trees, ktorý začal
+Jakub Kováč ako svoju bakalársku prácu. Zaoberá sa dátovými štruktúrami
+a ich vizualizáciou. Z vyvažovaných stromov to sú \Bp-strom, strom s prstom
+a strom s reverzom, z háld $d$-árna a ľavicová halda, skew halda a párovacia
+halda. Z iných štruktúr bol pridaný union-find problém a písmenkový strom (trie).
+Okrem vizualizácie sme softvér doplnili o históriu krokov a operácií,
+jednoduchšie ovládanie a tesnejšie vykresľovanie stromov.
 
 \noindent
 \textbf{Dostupnosť:} Softvér je voľne dostupný na stránke
-           {\url{http://people.ksp.sk/~kuko/gnarley-trees}}.
+           {\small\url{http://people.ksp.sk/~kuko/gnarley-trees}}.
 \keywords{Gnarley Trees, vizualizácia, algoritmy a dátové štruktúry}
 \end{abstract}
 
@@ -67,15 +79,8 @@ týchto štruktúrach.
 \input{prispevky/prispevky}
 \input{podakovanie/podakovanie}
 
-\nocite{*}
+%\nocite{*}
 \bibliographystyle{apalike}
 \bibliography{references}
-
-%% citacie ulozte do suboru references.bib
-%% na populaciu zoznamu literatury pouzite program
-%%
-%% bibtex references
-%%
-%% po ktorom je potrebne dokument znova zlatexovat
 
 \end{document}

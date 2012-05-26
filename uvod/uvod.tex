@@ -1,44 +1,65 @@
 \section{Úvod}
 Dátové štruktúry a algoritmy tvoria základnú, prvotnú časť výučby 
 informatiky. Vizualizácia algoritmov a dátových štruktúr je grafické 
-znázornenie, ktoré abstrahuje spôsob ako algoritmus a dátové štruktúry 
-pracujú od ich vnútornej reprezentácie a umiestnení v pamäti. Je teda 
-vyhľadávaná a všeobecne rozšírená pomôcka pri výučbe. Výsledky výskumov 
-ohľadne jej efektívnosti sa líšia, od stavu "nezaznamenali sme výrazné 
-zlepšenie" po "je viditeľné zlepšenie" \citep{shaffer}.
+znázornenie, ktoré abstrahuje od implementačných detajlov a reprezentácie
+v pamäti. Je teda vhodnou pomôckou pri výučbe i samoštúdiu. 
 
-Ako ľudia so záujmom o dátové štruktúry sme sa rozhodli pomôcť vybudovať 
-dobrý softvér na vizualizáciu algoritmov a dátových štruktúr a obohatiť 
-kompiláciu Jakuba Kováča \citep{kuko} o ďalšie dátové štruktúry. 
-Vizualizujeme rôznorodé dátové štruktúry. Z binárnych vyvažovaných stromov 
-to sú \emph{finger tree} a \emph{reversal tree}, z háld to sú \emph{d-nárna 
+Ukážka nášho softvéru \emph{Gnarley Trees} je na obrázku~\ref{img:historia}.
+Tento projekt začal ako bakalárska práca Jakuba Kováča \citep{kuko};
+v tomto článku popisujeme nové dátové štruktúry, ktoré sme vizualizovali
+a nové funkcie a vylepšenia, ktoré sme doplnili.
+
+% Ako ľudia so záujmom o dátové štruktúry sme sa rozhodli pomôcť vybudovať 
+% dobrý softvér na vizualizáciu algoritmov a dátových štruktúr a obohatiť 
+% kompiláciu Jakuba Kováča \citep{kuko} o ďalšie dátové štruktúry. 
+Z vyvažovaných stromov vizualizujeme
+\emph{B$^+$-strom}, \emph{strom s prstom} a \emph{strom s reverzami}, z háld to sú \emph{d-árna 
 halda}, \emph{ľavicová halda}, \emph{skew halda} a \emph{párovacia halda}. 
 Taktiež vizualizujeme aj \emph{union-find problém} a 
 \emph{písmenkový strom (trie)}. 
 
-Okrem vizualizácie prerábame softvér, doplnili sme ho o históriu krokov 
-a operácií, jednoduchšie ovládanie a veľa iných vecí, zlepšujúcich 
-celkový dojem. Softvér je celý v slovenčine a angličtine a je 
-implementovaný v jazyku \texttt{Java}.
+Okrem vizualizácie softvér prerábame a neustále vylepšujeme.
+Doplnili sme ho o históriu krokov a operácií, jednoduchšie ovládanie
+a veľa ďalších funkcií. Softvér je celý v slovenčine aj angličtine a je 
+implementovaný v jazyku \texttt{Java}. Dostupný je na stránke
+\hbox{\url{http://people.ksp.sk/~kuko/gnarley-trees}} vo forme appletov
+s jednotlivými dátovými štruktúrami, a tiež vo forme samostatného programu,
+ktorý obsahuje všetky dátové štruktúry a je určený na používanie offline.
 
-Rozmach vizualizačných algoritmov priniesla najmä Java a jej fungovanie 
-bez viazanosti na konkrétny operačný systém. Kvalita vizualizácií sa líši 
+Našou snahou je vytvoriť kvalitný softvér nezávislý od operačného systému, 
+ktorý bude vyhovovať ako pomôcka pri výučbe ako aj pri samoštúdiu a bude
+voľne prístupný. 
+
+%\bigskip
+Predchádzajúci výskum v oblasti pedagogiky
+zatiaľ nedokázal úplne preukázať pedagogickú efektívnosť
+vizualizácií \citep{shaffer}, avšak viacero štúdií potvrdilo zvýšený záujem
+a zapojenosť študentov \citep{naps02, hundhausen02}.
+
+Rozmach vizualizácie algoritmov priniesla najmä {\tt Java} a jej fungovanie 
+bez viazanosti na konkrétny operačný systém. Kvalita iných existujúcich vizualizácií sa líši 
 a keďže ide o ľahko naprogramovateľné programy, je ich veľa a sú pomerne 
-nekvalitné. V takomto množstve je ťažké nájsť kvalitné vizualizácie. 
-Zbieraním a analyzovaním kvality sa venuje skupina AlgoViz, ktorá už 
-veľa rokov funguje na portále \url{http://algoviz.org/}.
+nekvalitné \citep{shaffer}. 
+Zbieraním a analyzovaním kvality sa venuje skupina AlgoViz (\hbox{\url{http://algoviz.org/}}).
 
 Zaujímavé je pozorovanie, že určovanie si vlastného tempa pri vizualizácií 
 je veľká pomôcka. Naopak, ukazovanie pseudokódu alebo nemožnosť určenia si
 vlastného tempa (napríklad animácia bez možnosti pozastavenia), takmer 
 žiadne zlepšenie neprináša \citep{shaffer,saraiya}.
 
-\subsection*{Motivácia}
-Z vyššie uvedeného je jasné, že našou snahou je vytvoriť kvalitnú kompiláciu 
-a softvér, ktorý bude nezávislý od operačného systému, bude vyhovovať ako 
-pomôcka pri výučbe ako aj pri samoštúdiu a bude voľne prístupný a náležite 
-propagovaný. Toto sú hlavné body, ktoré nespĺňa žiaden slovenský a 
-len veľmi málo svetových vizualizačných softvérov. Našou hlavnou snahou 
-je teda ponúknuť plnohodnotné prostredie pri učení.
+%\bigskip
+Zvyšok článku je organizovaný nasledovne: V sekcií 2 popisujeme implementované
+vylepšenia týkajúce sa vizualizácie, grafiky a ovládania, v sekciách 3 až 6
+nové dátové štruktúry, ktoré sme implementovali a vizualizovali: vyvážené
+stromy, haldy, union-find a písmenkové stromy.
 
-% \todo{V sekcií 2 popiseme toto, v dalsich sekciach tamto}
+\begin{figure*}
+\centering
+\includegraphics[width=2.01\columnwidth]{obrazky/gt.png}
+\caption{\emph{Softvér Gnarley Trees.} V ovládacom paneli dole môže používateľ
+zvoliť operáciu a vstupnú hodnotu a sledovať priebeh algoritmu (monentálne vkladanie
+prvku 47). Používateľ postupuje vlastným tempom  pomocou tlačidiel \uv{Ďalej}, prípadne
+\uv{Späť}. Vpravo je popis vykonávaných krokov; kliknutím na konkrétny krok v histórií
+sa môže používateľ vrátiť.}
+\label{img:historia} 
+\end{figure*}
